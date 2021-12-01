@@ -10,20 +10,24 @@ const DUMMY_QUOTES = [
     { id: 'q2', author: 'Maximilian', text: 'Learning React is great!' },
 ];
 
-const QuoteDetails = () => {
+
+const QuoteDetail = () => {
     const params = useParams();
 
-    const quote = DUMMY_QUOTES.find(quote => quote.id === params.quoteId);
+    const quote = DUMMY_QUOTES.find((quote) => quote.id === params.quoteId);
 
     if (!quote) {
-        return <p> No quote found!</p>;
+        return <p>No quote found!</p>;
     }
+
     return (
         <Fragment>
             <HighlightedQuote text={quote.text} author={quote.author} />
-            <Route path={`/quotes/${params.quoteId}/comments`}></Route>
-            <Comments />
+            <Route path={`/quotes/${params.quoteId}/comments`}>
+                <Comments />
+            </Route>
         </Fragment>
     );
 };
-export default QuoteDetails;
+
+export default QuoteDetail;
