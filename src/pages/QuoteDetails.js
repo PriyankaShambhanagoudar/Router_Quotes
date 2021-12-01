@@ -4,13 +4,13 @@ import { Fragment } from "react/cjs/react.production.min";
 import Comments from "../components/comments/Comments";
 
 const QuoteDetails = () => {
-    const param = useParams();
+    const params = useParams();
 
     return (
         <Fragment>
             <h1> Quotes Details Page</h1>
-            <p>{param.quoteId}</p>
-            <Route path={`/quotes/${param.quoteId}/comments`}></Route>
+            <p>{params.quoteId}</p>
+            <Route path={`/quotes/${params.quoteId}/comments`}></Route>
             <Comments />
         </Fragment>
     );
